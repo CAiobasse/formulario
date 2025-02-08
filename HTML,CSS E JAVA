@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão de Login</title>
+    <link rel="stylesheet" href="seg.css"> <!-- Conectando ao arquivo CSS -->
+</head>
+<body>
+
+<!-- inicio do meu header -->
+ 
+<header>
+    <h1>Bem-vindo ao Meu Site</h1>
+    
+</header>
+
+<!-- fim do meu header -->
+
+ <!-- inicio da minha caixa -->
+
+
+    <!-- Cartão principal com o formulário -->
+    <div class="cartao">
+        <h2>LOGIN</h2>
+        <form>
+            <div class="campo">
+                <label for="nome">Nome do usuario:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="campo">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" maxlength="5" required>
+            </div>
+            <button onclick="validar()">Entre</button> 
+        </form>
+    </div>
+<!-- final do Cartão  com o formulário -->
+
+
+    <!-- Cartão  sobre o limite  da senha -->
+    <div class="cartao-info">
+        <p>A senha deve ter no máximo 5 dígitos.</p>
+    </div>
+  <!-- final do Cartão  sobre o limite  da senha -->
+
+
+<!-- fim da minha caixa -->
+<script src="ter.js"></script>
+</body>
+</html>
+
+
+
+CSS
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    flex-direction: column;
+    background-image: url('img/im2.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+}
+   
+
+
+
+
+.cartao {
+    background-color:rgb(58, 100, 192);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+    margin-bottom: 15px;
+    text-align: center; 
+   
+}
+
+
+.cartao h2 {
+    margin-bottom: 15px;
+}
+
+
+.campo {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.campo label {
+    display: block;
+    font-size: 14px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 25px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+.botao {
+    background-color: rgb(228, 0, 0);
+    color: rgb(4, 65, 197);
+    border: none;
+    padding: 20px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+
+.botao:hover {
+    background-color: #fd0000;
+}
+
+
+.cartao-info {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 280px;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 768) {
+    #cartao
+    #cartao-info {
+        width: 90%;
+    }
+}
+
+JAVA
+
+function validar() {
+    let login = document.getElementById('nome').value;
+    let senha = document.getElementById('senha').value;
+
+
+    let loginValido = /^[13579]{5}$/.test(login);
+    let senhaValida = /^[02468]{4}$/.test(senha);
+
+    if (loginValido && senhaValida) {
+        alert('login e senha válidos!');
+    } else{
+        alert('login ou senha inválidos!\n\nLembre-se: \n- O login deve conter cinco caracter');
+    } 
+}
