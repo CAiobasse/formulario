@@ -1,0 +1,9 @@
+JAVA
+
+function validar() {
+    let login = document.getElementById('nome').value;
+    let senha = document.getElementById('senha').value;
+
+
+    let loginValido = /^[13579]{5}$/.test(login);
+    let sen
